@@ -5,26 +5,28 @@ import java.awt.image.*;
 import java.io.*; 
 import javax.imageio.*; 
  
-public class ImageEditorFrame extends JFrame{   
+public class ImageEditorFrame extends JFrame{ 
+ ImageEditorPanel panel = new ImageEditorPanel();  
  public ImageEditorFrame(){       
- panel = new ImageEditorPanel(); 
+ 
  add(panel);
  
+
  
- private void setDummyImage(){    
+ 
+ setTitle("Titel:");
+ setDefaultCloseOperation(EXIT_ON_CLOSE);     
+ setSize(400,  300);      
+ setVisible(true); 
+createMenuBar(); 
+ }
+ 
+  private void setDummyImage(){    
  BufferedImage bufferedImage = new BufferedImage(400, 300, BufferedImage.TYPE_INT_RGB);
  Graphics g = bufferedImage.getGraphics();
  g.setColor(Color.YELLOW);
  g.fillOval(10, 10, 380, 280);
  panel.setImage(bufferedImage); 
- }
- 
- 
- setTitle("Titel:")
- setDefaultCloseOperation(EXIT_ON_CLOSE);     
- setSize(400,  300);      
- setVisible(true); 
-createMenuBar(); 
  }
  
  private void createMenuBar(){
